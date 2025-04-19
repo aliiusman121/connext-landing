@@ -29,8 +29,8 @@ export default function App() {
             transition={{ duration: 2 }}
           >
             <motion.h1
-              className="text-8xl font-extrabold tracking-tight"
-              style={{ fontFamily: 'Helvetica Neue, sans-serif' }}
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight"
+            style={{ fontFamily: 'Helvetica Neue, sans-serif' }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
