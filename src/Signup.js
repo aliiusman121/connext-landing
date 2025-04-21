@@ -1,46 +1,68 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const navigate = useNavigate();
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const queueNumber = Math.floor(Math.random() * 500) + 50;
 
-    // Send to SheetDB (your spreadsheet)
-    await fetch("https://sheetdb.io/api/v1/5eco2vhjrj1nl", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ data: [{ email }] }),
-    });
+    try {
+      const res = await fetch("https://sheetdb.io/api/v1/5eco2vhjrj1nl", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: [{ name, email }],
+        }),
+      });
 
-    // Navigate to waitlist page
-    navigate(`/waitlisted?number=${queueNumber}`);
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        alert("Something went wrong. Try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Error submitting. Please try again.");
+    }
   };
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4">
-      <h1 className="text-4xl font-bold mb-4 text-center">You're this close.</h1>
-      <p className="text-gray-400 mb-6 text-center">Drop your email. We'll drop the magic.</p>
-      <form onSubmit={handleSubmit} className="w-full max-w-md space-y-4">
-        <input
-          type="email"
-          name="email"
-          required
-          placeholder="your@email.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-4 py-2 rounded bg-zinc-800 border border-gray-700 text-white placeholder-gray-500"
-        />
-        <button
-          type="submit"
-          className="w-full bg-white text-black px-4 py-2 rounded hover:bg-gray-200 transition font-semibold"
-        >
-          Join the waitlist →
-        </button>
-      </form>
+    <div className="min-h-screen bg-black text-white flex flex-col justify-center items-center px-4">
+      <h1 className="text-3xl font-bold mb-6">Join the CONNEXT waitlist</h1>
+      {submitted ? (
+        <p className="text-green-400 text-lg">You're on the list, {name.split(" ")[0]} 👀</p>
+      ) : (
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-sm">
+          <input
+            type="text"
+            name="name"
+            required
+            placeholder="Your Name"
+            className="p-3 rounded text-black"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="your@email.com"
+            className="p-3 rounded text-black"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button
+            type="submit"
+            className="bg-white text-black px-6 py-2 rounded font-semibold hover:bg-gray-200 transition"
+          >
+            Join the Waitlist
+          </button>
+        </form>
+      )}
     </div>
   );
 }
