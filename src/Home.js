@@ -71,11 +71,11 @@ export default function Home() {
 
           {/* Hero */}
           <section className="min-h-[85vh] flex flex-col justify-center items-center text-center px-8 pt-[20vh]">
-            <h1 className="text-4xl font-bold mb-4">The networking app that doesn’t suck</h1>
+            <h1 className="text-4xl font-bold mb-6">The networking app that doesn’t suck</h1>
             <p className="text-lg text-gray-300 max-w-xl mb-6">
               For students, builders, and mentors who want to connect without the corporate cosplay.
             </p>
-            <h2 className="text-2xl font-semibold text-gray-100">
+            <h2 className="text-2xl font-semibold text-gray-100 mb-6">
               Not that blue-logo platform. This one actually helps you meet people.
             </h2>
             <a
@@ -94,20 +94,15 @@ export default function Home() {
             <h3 className="text-2xl font-bold mb-4">So how does this not suck?</h3>
 
             <div className="mt-4 space-y-6 text-lg text-gray-300 max-w-2xl mx-auto text-left">
-              {features.map((feature, index) => (
-                <div key={index} className="relative pl-6">
-                  <span className="absolute left-0 top-1">•</span>
-                  <p><strong>{feature.title}</strong> — {feature.description}</p>
-                  {index !== features.length - 1 && (
-                    <div className="flex justify-center mt-1">
-                      <ArrowDown className="w-4 h-4 text-gray-600" />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
+  {features.map((feature, index) => (
+    <div key={index} className="relative pl-6">
+      <span className="absolute left-0 top-1">•</span>
+      <p><strong>{feature.title}</strong> — {feature.description}</p>
+    </div>
+  ))}
+</div>
 
-            <h4 className="text-lg font-medium text-gray-300 text-center mt-16 mb-2">
+<h4 className="text-lg font-medium text-gray-300 text-center mt-16 mb-2">
               Here’s what your profile will look like on the feed. Scroll. Connect. Repeat.
             </h4>
             <p className="text-base text-gray-400 text-center italic">
@@ -130,7 +125,7 @@ export default function Home() {
     </div>
   </div>
   <div className="bg-gray-800 p-4 rounded-xl shadow-md flex flex-col justify-between h-full">
-    <p className="font-semibold text-white text-lg">Aisha</p>
+    <p className="font-semibold text-white text-lg">Michael</p>
     <p className="text-sm text-gray-400 mb-2">Mentor</p>
     <p className="text-gray-300 text-sm mb-2 italic">“Prefer 30-min async audio calls. No fluff.”</p>
     <p className="text-xs text-gray-400">
@@ -144,7 +139,7 @@ export default function Home() {
     </div>
   </div>
   <div className="bg-gray-800 p-4 rounded-xl shadow-md flex flex-col justify-between h-full">
-    <p className="font-semibold text-white text-lg">Tanuj</p>
+    <p className="font-semibold text-white text-lg">Ravi</p>
     <p className="text-sm text-gray-400 mb-2">Student</p>
     <p className="text-gray-300 text-sm mb-2 italic">“Not sure where to start. Here to learn + explore.”</p>
     <p className="text-xs text-gray-400">
@@ -196,7 +191,7 @@ export default function Home() {
             </div>
             <button
               onClick={() => navigate("/signup")}
-              className="bg-white text-black px-6 py-2 rounded font-semibold hover:bg-gray-200 transition mt-6"
+              className="bg-white text-black px-8 py-3 text-lg rounded font-semibold hover:bg-gray-200 transition mt-10"
             >
               → Count Me In
             </button>
