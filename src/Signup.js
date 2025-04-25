@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Signup() {
   const [name, setName] = useState("");
@@ -22,47 +23,68 @@ export default function Signup() {
       if (res.ok) {
         setSubmitted(true);
       } else {
-        alert("Something went wrong. Try again.");
+        alert("Yikes. Something broke. Try again?");
       }
     } catch (err) {
       console.error(err);
-      alert("Error submitting. Please try again.");
+      alert("Double yikes. Network error?");
     }
   };
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col justify-center items-center px-4">
-      <h1 className="text-3xl font-bold mb-6">Join the CONNEXT waitlist</h1>
-      {submitted ? (
-        <p className="text-green-400 text-lg">You're on the list, {name.split(" ")[0]} 👀</p>
-      ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-sm">
-          <input
-            type="text"
-            name="name"
-            required
-            placeholder="Your Name"
-            className="p-3 rounded text-black"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="your@email.com"
-            className="p-3 rounded text-black"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button
-            type="submit"
-            className="bg-white text-black px-6 py-2 rounded font-semibold hover:bg-gray-200 transition"
-          >
-            Join the Waitlist
-          </button>
-        </form>
-      )}
+    <div className="min-h-screen bg-black text-white flex flex-col justify-center items-center px-6 py-16">
+      <motion.div
+        className="w-full max-w-md"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        {submitted ? (
+          <>
+            <h1 className="text-4xl font-extrabold text-center text-white mb-4">
+              Congrats, you’re now <span className="text-white">contractually obligated</span> to connect with people.
+            </h1>
+            <p className="text-green-400 text-center mb-6">
+              Your name is now in the <span className="font-semibold">sacred spreadsheet</span>, {name.split(" ")[0]}.
+            </p>
+          </>
+        ) : (
+          <>
+            <h1 className="text-4xl font-extrabold text-center mb-6">
+              Join the <span className="text-white underline underline-offset-4">CONNEXT</span> Waitlist
+            </h1>
+            <form
+              onSubmit={handleSubmit}
+              className="bg-zinc-900 p-6 rounded-xl shadow-lg flex flex-col gap-4"
+            >
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Your Name"
+                className="p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-white"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="you@cooldomain.com"
+                className="p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-white"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <button
+                type="submit"
+                className="bg-white text-black font-semibold py-3 rounded-md hover:bg-zinc-200 transition border border-zinc-800"
+              >
+                Join the Waitlist
+              </button>
+            </form>
+          </>
+        )}
+      </motion.div>
     </div>
   );
 }

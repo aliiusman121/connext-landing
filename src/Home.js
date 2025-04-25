@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
@@ -11,6 +11,29 @@ export default function Home() {
     const timeout = setTimeout(() => setShowSplash(false), 3000);
     return () => clearTimeout(timeout);
   }, []);
+
+  const features = [
+    {
+      title: "Choose your vibe(s)",
+      description: "Are you a Builder? Mentor? Explorer? Student?"
+    },
+    {
+      title: "Scroll the feed",
+      description: "Part discovery, part digital stalking (in a good way)."
+    },
+    {
+      title: "Find someone that matches your vibe",
+      description: "Vibes are the new résumés."
+    },
+    {
+      title: "Hit connect",
+      description: "No awkward intros. Just instant access to cool humans."
+    },
+    {
+      title: "Start something",
+      description: "A call. A project. A friendship. A vibe. You choose."
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-black text-white font-sans scroll-smooth">
@@ -69,41 +92,86 @@ export default function Home() {
             className="min-h-[120vh] pt-40 flex flex-col justify-center items-center text-center px-8 bg-gradient-to-b from-black via-zinc-900 to-black"
           >
             <h3 className="text-2xl font-bold mb-4">So how does this not suck?</h3>
-            <ul className="mt-4 space-y-6 text-lg text-gray-300 max-w-2xl mx-auto text-left list-disc list-inside">
-              <li><strong>Pick who you are</strong> – builder, mentor, student, explorer. Please don't pick all four. Unless you're having an identity crisis.</li>
-              <li><strong>Scroll the feed</strong> – it’s like Pinterest, but for people who code and overshare.</li>
-              <li><strong>Find someone that matches your vibe</strong> – vibes are the new résumés.</li>
-              <li><strong>Press connect</strong> – it’s one button. Don’t overthink it.</li>
-              <li><strong>Build something cool</strong> – or collab on something mid. No judgment.</li>
-              <li><strong>Reflect and grow</strong> – even if your project flops. That's still progress, not failure.</li>
-            </ul>
 
-            <h4 className="text-lg font-medium text-gray-400 text-center mt-16 mb-2">
-              Here’s what your profile will look like on the feed. Scroll. Connect. Repeat.
-            </h4>
-            <p className="text-sm text-gray-500 text-center italic">
-              they’ll be better than this obv but you get the idea, relax
-            </p>
-
-            <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-left mt-12 bg-zinc-900 rounded-xl p-6 shadow-inner">
-              {/* Repeat this card block as needed */}
-              {["Builder", "Mentor", "Student", "Explorer"].map((role, i) => (
-                <div key={i} className="bg-gray-800 p-4 rounded-xl shadow-md flex flex-col justify-between h-full">
-                  <p className="font-semibold text-white">Your Name</p>
-                  <p className="text-sm text-gray-400 mb-2">{role}</p>
-                  <p className="text-gray-300 text-sm mb-2">[Insert witty description here]</p>
-                  <p className="text-xs text-gray-400">
-                    <span className="text-white font-semibold">Has:</span> Stuff
-                  </p>
-                  <p className="text-xs text-gray-400 mb-3">
-                    <span className="text-white font-semibold">Wants:</span> Other stuff
-                  </p>
-                  <div className="mt-auto pt-4">
-                    <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
-                  </div>
+            <div className="mt-4 space-y-6 text-lg text-gray-300 max-w-2xl mx-auto text-left">
+              {features.map((feature, index) => (
+                <div key={index} className="relative pl-6">
+                  <span className="absolute left-0 top-1">•</span>
+                  <p><strong>{feature.title}</strong> — {feature.description}</p>
+                  {index !== features.length - 1 && (
+                    <div className="flex justify-center mt-1">
+                      <ArrowDown className="w-4 h-4 text-gray-600" />
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
+
+            <h4 className="text-lg font-medium text-gray-300 text-center mt-16 mb-2">
+              Here’s what your profile will look like on the feed. Scroll. Connect. Repeat.
+            </h4>
+            <p className="text-base text-gray-400 text-center italic">
+              they’ll be better than this obviously but you get the idea, relax
+            </p>
+
+            <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-left mt-12 bg-zinc-900 rounded-xl p-6 shadow-inner">
+  <div className="bg-gray-800 p-4 rounded-xl shadow-md flex flex-col justify-between h-full">
+    <p className="font-semibold text-white text-lg">Jordan</p>
+    <p className="text-sm text-gray-400 mb-2">Builder</p>
+    <p className="text-gray-300 text-sm mb-2 italic">“Launched 3 weeks ago. Looking to stay consistent this time.”</p>
+    <p className="text-xs text-gray-400">
+      <span className="text-white font-semibold">Has:</span> MVP of a social productivity app
+    </p>
+    <p className="text-xs text-gray-400 mb-3">
+      <span className="text-white font-semibold">Wants:</span> UI designer, marketer, co-founder
+    </p>
+    <div className="mt-auto pt-4">
+      <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
+    </div>
+  </div>
+  <div className="bg-gray-800 p-4 rounded-xl shadow-md flex flex-col justify-between h-full">
+    <p className="font-semibold text-white text-lg">Aisha</p>
+    <p className="text-sm text-gray-400 mb-2">Mentor</p>
+    <p className="text-gray-300 text-sm mb-2 italic">“Prefer 30-min async audio calls. No fluff.”</p>
+    <p className="text-xs text-gray-400">
+      <span className="text-white font-semibold">Has:</span> 12 years in VC & product growth
+    </p>
+    <p className="text-xs text-gray-400 mb-3">
+      <span className="text-white font-semibold">Wants:</span> To help 1-2 ambitious Gen Z founders monthly
+    </p>
+    <div className="mt-auto pt-4">
+      <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
+    </div>
+  </div>
+  <div className="bg-gray-800 p-4 rounded-xl shadow-md flex flex-col justify-between h-full">
+    <p className="font-semibold text-white text-lg">Tanuj</p>
+    <p className="text-sm text-gray-400 mb-2">Student</p>
+    <p className="text-gray-300 text-sm mb-2 italic">“Not sure where to start. Here to learn + explore.”</p>
+    <p className="text-xs text-gray-400">
+      <span className="text-white font-semibold">Has:</span> Final-year comp sci + side project in fintech
+    </p>
+    <p className="text-xs text-gray-400 mb-3">
+      <span className="text-white font-semibold">Wants:</span> Exposure to real-world startup builders
+    </p>
+    <div className="mt-auto pt-4">
+      <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
+    </div>
+  </div>
+  <div className="bg-gray-800 p-4 rounded-xl shadow-md flex flex-col justify-between h-full">
+    <p className="font-semibold text-white text-lg">Talia</p>
+    <p className="text-sm text-gray-400 mb-2">Explorer</p>
+    <p className="text-gray-300 text-sm mb-2 italic">“Not building anything yet. Just wandering, absorbing, and seeing what clicks.”</p>
+    <p className="text-xs text-gray-400">
+      <span className="text-white font-semibold">Has:</span> Curiosity, a half-finished Substack, and deep questions
+    </p>
+    <p className="text-xs text-gray-400 mb-3">
+      <span className="text-white font-semibold">Wants:</span> Conversations, collaborations, or chaos (TBD)
+    </p>
+    <div className="mt-auto pt-4">
+      <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
+    </div>
+  </div>
+</div>
 
             <a
               onClick={() => document.getElementById("section3")?.scrollIntoView({ behavior: "smooth" })}
@@ -118,32 +186,29 @@ export default function Home() {
             id="section3"
             className="min-h-[75vh] flex flex-col justify-center items-center text-center px-8 bg-black"
           >
-            <h3 className="text-xl mb-4 text-gray-200">
-              This isn’t a platform. It’s a place. For people who build, ask, explore, and maybe overshare a little.
-            </h3>
+            <div className="text-center text-gray-200 mb-4">
+              <p className="text-xl">
+                A new kind of networking app — where people actually reply, collaborate, and build things together.
+              </p>
+              <p className="text-xl mt-2">
+                No résumés. No corporate cosplay. Just vibes and action.
+              </p>
+            </div>
             <button
               onClick={() => navigate("/signup")}
               className="bg-white text-black px-6 py-2 rounded font-semibold hover:bg-gray-200 transition mt-6"
             >
-              → F*ck It, I’m In
+              → Count Me In
             </button>
           </section>
 
           {/* Footer */}
           <footer className="mt-24 py-12 border-t border-gray-800 text-center text-gray-500 text-sm">
             <p>
-              © 2025 CONNEXT. Built for weirdos.{" "}
-              <a href="#" className="underline">
-                Privacy
-              </a>{" "}
-              •{" "}
-              <a href="#" className="underline">
-                Terms
-              </a>{" "}
-              •{" "}
-              <a href="#" className="underline">
-                Twitter
-              </a>
+              © 2025 CONNEXT. Built for people who actually reply.{' '}
+              <a href="#" className="underline">Privacy</a> •{' '}
+              <a href="#" className="underline">Terms</a> •{' '}
+              <a href="#" className="underline">Twitter</a>
             </p>
           </footer>
         </main>
