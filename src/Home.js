@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
@@ -11,29 +11,6 @@ export default function Home() {
     const timeout = setTimeout(() => setShowSplash(false), 3000);
     return () => clearTimeout(timeout);
   }, []);
-
-  const features = [
-    {
-      title: "Choose your vibe(s)",
-      description: "Are you a Builder? Mentor? Explorer? Student?"
-    },
-    {
-      title: "Scroll the feed",
-      description: "Part discovery, part digital stalking (in a good way)."
-    },
-    {
-      title: "Find someone that matches your vibe",
-      description: "Vibes are the new résumés."
-    },
-    {
-      title: "Hit connect",
-      description: "No awkward intros. Just instant access to cool humans."
-    },
-    {
-      title: "Start something",
-      description: "A call. A project. A friendship. A vibe. You choose."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-black text-white font-sans scroll-smooth">
@@ -69,7 +46,7 @@ export default function Home() {
             </h1>
           </div>
 
-          {/* Hero */}
+          {/* Hero Section */}
           <section className="min-h-[85vh] flex flex-col justify-center items-center text-center px-8 pt-[20vh]">
             <h1 className="text-4xl font-bold mb-6">The networking app that doesn’t suck</h1>
             <p className="text-lg text-gray-300 max-w-xl mb-6">
@@ -93,81 +70,106 @@ export default function Home() {
           >
             <h3 className="text-2xl font-bold mb-4">So how does this not suck?</h3>
 
+            {/* Features list */}
             <div className="mt-4 space-y-6 text-lg text-gray-300 max-w-2xl mx-auto text-left">
-  {features.map((feature, index) => (
-    <div key={index} className="relative pl-6">
-      <span className="absolute left-0 top-1">•</span>
-      <p><strong>{feature.title}</strong> — {feature.description}</p>
-    </div>
-  ))}
-</div>
+              <div className="relative pl-6">
+                <span className="absolute left-0 top-1">•</span>
+                <p><strong>Choose your vibe(s)</strong> — Are you a Builder? Mentor? Explorer? Student?</p>
+              </div>
+              <div className="relative pl-6">
+                <span className="absolute left-0 top-1">•</span>
+                <p><strong>Scroll the feed</strong> – part discovery, part digital stalking (in a good way).</p>
+              </div>
+              <div className="relative pl-6">
+                <span className="absolute left-0 top-1">•</span>
+                <p><strong>Find someone that matches your vibe</strong> – vibes are the new résumés.</p>
+              </div>
+              <div className="relative pl-6">
+                <span className="absolute left-0 top-1">•</span>
+                <p><strong>Hit connect</strong> – No awkward intros. Just instant access to cool humans.</p>
+              </div>
+              <div className="relative pl-6">
+                <span className="absolute left-0 top-1">•</span>
+                <p><strong>Start something</strong> – A call. A project. A friendship. A vibe. You choose.</p>
+              </div>
+            </div>
 
-<h4 className="text-lg font-medium text-gray-300 text-center mt-16 mb-2">
+            {/* Profiles preview */}
+            <h4 className="text-lg font-medium text-gray-300 text-center mt-16 mb-2">
               Here’s what your profile will look like on the feed. Scroll. Connect. Repeat.
             </h4>
             <p className="text-base text-gray-400 text-center italic">
               they’ll be better than this obviously but you get the idea, relax
             </p>
 
+            {/* User cards */}
             <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-left mt-12 bg-zinc-900 rounded-xl p-6 shadow-inner">
-  <div className="bg-gray-800 p-4 rounded-xl shadow-md flex flex-col justify-between h-full">
-    <p className="font-semibold text-white text-lg">Jordan</p>
-    <p className="text-sm text-gray-400 mb-2">Builder</p>
-    <p className="text-gray-300 text-sm mb-2 italic">“Launched 3 weeks ago. Looking to stay consistent this time.”</p>
-    <p className="text-xs text-gray-400">
-      <span className="text-white font-semibold">Has:</span> MVP of a social productivity app
-    </p>
-    <p className="text-xs text-gray-400 mb-3">
-      <span className="text-white font-semibold">Wants:</span> UI designer, marketer, co-founder
-    </p>
-    <div className="mt-auto pt-4">
-      <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
-    </div>
-  </div>
-  <div className="bg-gray-800 p-4 rounded-xl shadow-md flex flex-col justify-between h-full">
-    <p className="font-semibold text-white text-lg">Michael</p>
-    <p className="text-sm text-gray-400 mb-2">Mentor</p>
-    <p className="text-gray-300 text-sm mb-2 italic">“Prefer 30-min async audio calls. No fluff.”</p>
-    <p className="text-xs text-gray-400">
-      <span className="text-white font-semibold">Has:</span> 12 years in VC & product growth
-    </p>
-    <p className="text-xs text-gray-400 mb-3">
-      <span className="text-white font-semibold">Wants:</span> To help 1-2 ambitious Gen Z founders monthly
-    </p>
-    <div className="mt-auto pt-4">
-      <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
-    </div>
-  </div>
-  <div className="bg-gray-800 p-4 rounded-xl shadow-md flex flex-col justify-between h-full">
-    <p className="font-semibold text-white text-lg">Ravi</p>
-    <p className="text-sm text-gray-400 mb-2">Student</p>
-    <p className="text-gray-300 text-sm mb-2 italic">“Not sure where to start. Here to learn + explore.”</p>
-    <p className="text-xs text-gray-400">
-      <span className="text-white font-semibold">Has:</span> Final-year comp sci + side project in fintech
-    </p>
-    <p className="text-xs text-gray-400 mb-3">
-      <span className="text-white font-semibold">Wants:</span> Exposure to real-world startup builders
-    </p>
-    <div className="mt-auto pt-4">
-      <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
-    </div>
-  </div>
-  <div className="bg-gray-800 p-4 rounded-xl shadow-md flex flex-col justify-between h-full">
-    <p className="font-semibold text-white text-lg">Talia</p>
-    <p className="text-sm text-gray-400 mb-2">Explorer</p>
-    <p className="text-gray-300 text-sm mb-2 italic">“Not building anything yet. Just wandering, absorbing, and seeing what clicks.”</p>
-    <p className="text-xs text-gray-400">
-      <span className="text-white font-semibold">Has:</span> Curiosity, a half-finished Substack, and deep questions
-    </p>
-    <p className="text-xs text-gray-400 mb-3">
-      <span className="text-white font-semibold">Wants:</span> Conversations, collaborations, or chaos (TBD)
-    </p>
-    <div className="mt-auto pt-4">
-      <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
-    </div>
-  </div>
-</div>
+              {/* Jordan */}
+              <div className="bg-gray-800 p-4 rounded-xl shadow-md flex flex-col justify-between h-full">
+                <p className="font-semibold text-white text-lg">Jordan</p>
+                <p className="text-sm text-gray-400 mb-2">Builder</p>
+                <p className="text-gray-300 text-sm mb-2 italic">“Launched 3 weeks ago. Looking to stay consistent this time.”</p>
+                <p className="text-xs text-gray-400">
+                  <span className="text-white font-semibold">Has:</span> MVP of a social productivity app
+                </p>
+                <p className="text-xs text-gray-400 mb-3">
+                  <span className="text-white font-semibold">Wants:</span> UI designer, marketer, co-founder
+                </p>
+                <div className="mt-auto pt-4">
+                  <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
+                </div>
+              </div>
 
+              {/* Michael */}
+              <div className="bg-gray-800 p-4 rounded-xl shadow-md flex flex-col justify-between h-full">
+                <p className="font-semibold text-white text-lg">Michael</p>
+                <p className="text-sm text-gray-400 mb-2">Mentor</p>
+                <p className="text-gray-300 text-sm mb-2 italic">“Prefer 30-min async audio calls. No fluff.”</p>
+                <p className="text-xs text-gray-400">
+                  <span className="text-white font-semibold">Has:</span> 12 years in VC & product growth
+                </p>
+                <p className="text-xs text-gray-400 mb-3">
+                  <span className="text-white font-semibold">Wants:</span> To help 1–2 ambitious Gen Z founders monthly
+                </p>
+                <div className="mt-auto pt-4">
+                  <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
+                </div>
+              </div>
+
+              {/* Ravi */}
+              <div className="bg-gray-800 p-4 rounded-xl shadow-md flex flex-col justify-between h-full">
+                <p className="font-semibold text-white text-lg">Ravi</p>
+                <p className="text-sm text-gray-400 mb-2">Student</p>
+                <p className="text-gray-300 text-sm mb-2 italic">“Not sure where to start. Here to learn + explore.”</p>
+                <p className="text-xs text-gray-400">
+                  <span className="text-white font-semibold">Has:</span> Final-year comp sci + side project in fintech
+                </p>
+                <p className="text-xs text-gray-400 mb-3">
+                  <span className="text-white font-semibold">Wants:</span> Exposure to real-world startup builders
+                </p>
+                <div className="mt-auto pt-4">
+                  <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
+                </div>
+              </div>
+
+              {/* Talia */}
+              <div className="bg-gray-800 p-4 rounded-xl shadow-md flex flex-col justify-between h-full">
+                <p className="font-semibold text-white text-lg">Talia</p>
+                <p className="text-sm text-gray-400 mb-2">Explorer</p>
+                <p className="text-gray-300 text-sm mb-2 italic">“Not building anything yet. Just wandering, absorbing, and seeing what clicks.”</p>
+                <p className="text-xs text-gray-400">
+                  <span className="text-white font-semibold">Has:</span> Curiosity, a half-finished Substack, and deep questions
+                </p>
+                <p className="text-xs text-gray-400 mb-3">
+                  <span className="text-white font-semibold">Wants:</span> Conversations, collaborations, or chaos (TBD)
+                </p>
+                <div className="mt-auto pt-4">
+                  <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Scroll down */}
             <a
               onClick={() => document.getElementById("section3")?.scrollIntoView({ behavior: "smooth" })}
               className="mt-10 text-gray-500 hover:text-white block text-center cursor-pointer"
@@ -176,7 +178,7 @@ export default function Home() {
             </a>
           </section>
 
-          {/* Section 3: CTA */}
+          {/* CTA Section */}
           <section
             id="section3"
             className="min-h-[75vh] flex flex-col justify-center items-center text-center px-8 bg-black"
@@ -189,6 +191,8 @@ export default function Home() {
                 No résumés. No corporate cosplay. Just vibes and action.
               </p>
             </div>
+
+            {/* Count Me In button */}
             <button
               onClick={() => navigate("/signup")}
               className="bg-white text-black px-8 py-3 text-lg rounded font-semibold hover:bg-gray-200 transition mt-10"
@@ -200,9 +204,9 @@ export default function Home() {
           {/* Footer */}
           <footer className="mt-24 py-12 border-t border-gray-800 text-center text-gray-500 text-sm">
             <p>
-              © 2025 CONNEXT. Built for people who actually reply.{' '}
-              <a href="#" className="underline">Privacy</a> •{' '}
-              <a href="#" className="underline">Terms</a> •{' '}
+              © 2025 CONNEXT. Built for people who actually reply.{" "}
+              <a href="#" className="underline">Privacy</a> •{" "}
+              <a href="#" className="underline">Terms</a> •{" "}
               <a href="#" className="underline">Twitter</a>
             </p>
           </footer>
