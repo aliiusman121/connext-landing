@@ -116,7 +116,7 @@ export default function Home() {
                   <span className="text-white font-semibold">Wants:</span> UI designer, marketer, co-founder
                 </p>
                 <div className="mt-auto pt-4">
-                  <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
+                  <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connext</div>
                 </div>
               </div>
 
@@ -132,7 +132,7 @@ export default function Home() {
                   <span className="text-white font-semibold">Wants:</span> To help 1–2 ambitious Gen Z founders monthly
                 </p>
                 <div className="mt-auto pt-4">
-                  <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
+                  <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connext</div>
                 </div>
               </div>
 
@@ -148,7 +148,7 @@ export default function Home() {
                   <span className="text-white font-semibold">Wants:</span> Exposure to real-world startup builders
                 </p>
                 <div className="mt-auto pt-4">
-                  <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
+                  <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connext</div>
                 </div>
               </div>
 
@@ -164,7 +164,7 @@ export default function Home() {
                   <span className="text-white font-semibold">Wants:</span> Conversations, collaborations, or chaos (TBD)
                 </p>
                 <div className="mt-auto pt-4">
-                  <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connect</div>
+                  <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connext</div>
                 </div>
               </div>
             </div>
