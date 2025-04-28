@@ -14,7 +14,7 @@ export default function Signup() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer pat47bjuQIVmwuLN9`
+          Authorization: `Bearer patb9LTZVazshKkHW.d1724b219c5a73bd64d34d4e5ebac04ad8452e2159075166c1ef9178fb19e365`
         },
         body: JSON.stringify({
           records: [
@@ -31,7 +31,9 @@ export default function Signup() {
       if (res.ok) {
         setSubmitted(true);
       } else {
-        alert("Yikes. Something broke. Try again?");
+        const error = await res.json();
+        console.error("Airtable error:", error);
+        alert(`Yikes. Airtable says: ${error.error.type}`);
       }
     } catch (err) {
       console.error(err);
