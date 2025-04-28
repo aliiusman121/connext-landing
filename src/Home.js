@@ -8,7 +8,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const timeout = setTimeout(() => setShowSplash(false), 2000); // 2 seconds now
+    const timeout = setTimeout(() => setShowSplash(false), 2000);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -21,7 +21,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1 }} // fade duration 1 second
+            transition={{ duration: 1 }}
           >
             <motion.h1
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight"
@@ -71,26 +71,11 @@ export default function Home() {
             <h3 className="text-2xl font-bold mb-4">So how does this not suck?</h3>
 
             <div className="mt-4 space-y-6 text-lg text-gray-300 max-w-2xl mx-auto text-left">
-              <div className="relative pl-6">
-                <span className="absolute left-0 top-1">•</span>
-                <p><strong>Choose your vibe(s)</strong> — Are you a Builder? Mentor? Explorer? Student?</p>
-              </div>
-              <div className="relative pl-6">
-                <span className="absolute left-0 top-1">•</span>
-                <p><strong>Scroll the feed</strong> — part discovery, part digital stalking (in a good way).</p>
-              </div>
-              <div className="relative pl-6">
-                <span className="absolute left-0 top-1">•</span>
-                <p><strong>Find someone that matches your vibe</strong> — vibes are the new résumés.</p>
-              </div>
-              <div className="relative pl-6">
-                <span className="absolute left-0 top-1">•</span>
-                <p><strong>Hit connect</strong> — No awkward intros. Just instant access to cool humans.</p>
-              </div>
-              <div className="relative pl-6">
-                <span className="absolute left-0 top-1">•</span>
-                <p><strong>Start something</strong> — A call. A project. A friendship. A vibe. You choose.</p>
-              </div>
+              <p><strong>Choose your vibe(s)</strong> — Are you a Builder? Mentor? Explorer? Student?</p>
+              <p><strong>Scroll the feed</strong> – part discovery, part digital stalking (in a good way).</p>
+              <p><strong>Find someone that matches your vibe</strong> – vibes are the new résumés.</p>
+              <p><strong>Hit connect</strong> – No awkward intros. Just instant access to cool humans.</p>
+              <p><strong>Start something real</strong> – Collaborate. Create. Build. Repeat.</p>
             </div>
 
             <h4 className="text-lg font-medium text-gray-300 text-center mt-16 mb-2">
@@ -100,56 +85,78 @@ export default function Home() {
               they’ll be better than this obviously but you get the idea, relax
             </p>
 
-            {/* User cards */}
-            <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-left mt-12 bg-zinc-900 rounded-xl p-6 shadow-inner">
-              {/* Each card manually updated below */}
-              {[
-                {
-                  name: "Jordan",
-                  role: "Builder",
-                  quote: "Launched 3 weeks ago. Looking to stay consistent this time.",
-                  has: "MVP of a social productivity app",
-                  wants: "UI designer, marketer, co-founder"
-                },
-                {
-                  name: "Michael",
-                  role: "Mentor",
-                  quote: "Prefer 30-min async audio calls. No fluff.",
-                  has: "12 years in VC & product growth",
-                  wants: "To help 1–2 ambitious Gen Z founders monthly"
-                },
-                {
-                  name: "Ravi",
-                  role: "Student",
-                  quote: "Not sure where to start. Here to learn + explore.",
-                  has: "Final-year comp sci + side project in fintech",
-                  wants: "Exposure to real-world startup builders"
-                },
-                {
-                  name: "Talia",
-                  role: "Explorer",
-                  quote: "Not building anything yet. Just wandering, absorbing, and seeing what clicks.",
-                  has: "Curiosity, a half-finished Substack, and deep questions",
-                  wants: "Conversations, collaborations, or chaos (TBD)"
-                }
-              ].map((profile, i) => (
-                <div
-                  key={i}
-                  className="p-4 rounded-xl shadow-md flex flex-col justify-between h-full border"
-                  style={{ backgroundColor: "#1a1a1a", color: "#f5f5f5", borderColor: "#333333" }}
-                >
-                  <p className="font-semibold text-white text-lg">{profile.name}</p>
-                  <p className="text-sm text-gray-400 mb-2">{profile.role}</p>
-                  <p className="text-sm italic text-gray-300 mb-2">"{profile.quote}"</p>
-                  <p className="text-xs text-gray-400"><span className="text-white font-semibold">Has:</span> {profile.has}</p>
-                  <p className="text-xs text-gray-400 mb-3"><span className="text-white font-semibold">Wants:</span> {profile.wants}</p>
-                  <div className="mt-auto pt-4">
-                    <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">
-                      Connext
-                    </div>
-                  </div>
+            <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-left mt-12">
+              {/* Jordan */}
+              <div className="bg-[#1a1a1a] p-4 rounded-xl border border-[#333] shadow-md flex flex-col justify-between h-full">
+                <p className="font-semibold text-[#f5f5f5] text-lg">Jordan</p>
+                <p className="text-sm text-gray-400 mb-2">Builder</p>
+                <p className="text-gray-300 text-sm mb-2 italic">
+                  “Launched 3 weeks ago. Looking to stay consistent this time.”
+                </p>
+                <p className="text-xs text-gray-400">
+                  <span className="text-[#f5f5f5] font-semibold">Has:</span> MVP of a social productivity app
+                </p>
+                <p className="text-xs text-gray-400 mb-3">
+                  <span className="text-[#f5f5f5] font-semibold">Wants:</span> UI designer, marketer, co-founder
+                </p>
+                <div className="mt-auto pt-4">
+                  <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connext</div>
                 </div>
-              ))}
+              </div>
+
+              {/* Michael */}
+              <div className="bg-[#1a1a1a] p-4 rounded-xl border border-[#333] shadow-md flex flex-col justify-between h-full">
+                <p className="font-semibold text-[#f5f5f5] text-lg">Michael</p>
+                <p className="text-sm text-gray-400 mb-2">Mentor</p>
+                <p className="text-gray-300 text-sm mb-2 italic">
+                  “Prefer 30-min async audio calls. No fluff.”
+                </p>
+                <p className="text-xs text-gray-400">
+                  <span className="text-[#f5f5f5] font-semibold">Has:</span> 12 years in VC & product growth
+                </p>
+                <p className="text-xs text-gray-400 mb-3">
+                  <span className="text-[#f5f5f5] font-semibold">Wants:</span> To help 1–2 ambitious Gen Z founders monthly
+                </p>
+                <div className="mt-auto pt-4">
+                  <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connext</div>
+                </div>
+              </div>
+
+              {/* Ravi */}
+              <div className="bg-[#1a1a1a] p-4 rounded-xl border border-[#333] shadow-md flex flex-col justify-between h-full">
+                <p className="font-semibold text-[#f5f5f5] text-lg">Ravi</p>
+                <p className="text-sm text-gray-400 mb-2">Student</p>
+                <p className="text-gray-300 text-sm mb-2 italic">
+                  “Not sure where to start. Here to learn + explore.”
+                </p>
+                <p className="text-xs text-gray-400">
+                  <span className="text-[#f5f5f5] font-semibold">Has:</span> Final-year comp sci + side project in fintech
+                </p>
+                <p className="text-xs text-gray-400 mb-3">
+                  <span className="text-[#f5f5f5] font-semibold">Wants:</span> Exposure to real-world startup builders
+                </p>
+                <div className="mt-auto pt-4">
+                  <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connext</div>
+                </div>
+              </div>
+
+              {/* Talia */}
+              <div className="bg-[#1a1a1a] p-4 rounded-xl border border-[#333] shadow-md flex flex-col justify-between h-full">
+                <p className="font-semibold text-[#f5f5f5] text-lg">Talia</p>
+                <p className="text-sm text-gray-400 mb-2">Explorer</p>
+                <p className="text-gray-300 text-sm mb-2 italic">
+                  “Not building anything yet. Just wandering, absorbing, and seeing what clicks.”
+                </p>
+                <p className="text-xs text-gray-400">
+                  <span className="text-[#f5f5f5] font-semibold">Has:</span> Curiosity, a half-finished Substack, and deep questions
+                </p>
+                <p className="text-xs text-gray-400 mb-3">
+                  <span className="text-[#f5f5f5] font-semibold">Wants:</span> Conversations, collaborations, or chaos (TBD)
+                </p>
+                <div className="mt-auto pt-4">
+                  <div className="text-sm bg-white text-black px-3 py-1 rounded w-full text-center select-none pointer-events-none">Connext</div>
+                </div>
+              </div>
             </div>
 
             <a
@@ -170,24 +177,23 @@ export default function Home() {
                 A new kind of networking app — where people actually reply, collaborate, and build things together.
               </p>
               <p className="text-xl mt-2">
-                No résumés. No corporate cosplay. Just vibes and action.
+                No résumés. No corporate cosplay. Only real connections, real momentum.
               </p>
             </div>
 
             <button
               onClick={() => navigate("/signup")}
-              className="bg-white text-black px-8 py-3 text-lg rounded font-semibold hover:bg-gray-200 transition-all transform hover:scale-105 mt-10"
+              className="bg-white text-black px-8 py-3 text-lg rounded font-semibold hover:bg-gray-200 transition mt-10"
             >
               → Count Me In
             </button>
           </section>
 
-          {/* Footer */}
           <footer className="mt-24 py-12 border-t border-gray-800 text-center text-gray-500 text-sm">
             <p>
-              © 2025 CONNEXT. Built for people who actually reply.{" "}
-              <a href="#" className="underline">Privacy</a> •{" "}
-              <a href="#" className="underline">Terms</a> •{" "}
+              © 2025 CONNEXT. Built for people who actually reply. {" "}
+              <a href="#" className="underline">Privacy</a> • {" "}
+              <a href="#" className="underline">Terms</a> • {" "}
               <a href="#" className="underline">Twitter</a>
             </p>
           </footer>
