@@ -10,15 +10,22 @@ export default function Signup() {
     e.preventDefault();
 
     try {
-      const res = await fetch("/api/signup", {
+      const res = await fetch("https://api.airtable.com/v0/app4NjjZkLebYd1qj/tbl4awyeEddmlJgQt", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer pat47bjuQIVmwuLN9`
         },
         body: JSON.stringify({
-          name: name,
-          email: email,
-        }),
+          records: [
+            {
+              fields: {
+                Name: name,
+                Email: email
+              }
+            }
+          ]
+        })
       });
 
       if (res.ok) {
