@@ -122,9 +122,9 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Ravi */}
+              {/* Aryan */}
               <div className="bg-[#1a1a1a] p-4 rounded-xl border border-[#333] shadow-md flex flex-col justify-between h-full">
-                <p className="font-semibold text-[#f5f5f5] text-lg">Ravi</p>
+                <p className="font-semibold text-[#f5f5f5] text-lg">Aryan</p>
                 <p className="text-sm text-gray-400 mb-2">Student</p>
                 <p className="text-gray-300 text-sm mb-2 italic">
                   “Not sure where to start. Here to learn + explore.”
@@ -189,12 +189,20 @@ export default function Home() {
             </button>
           </section>
 
+          {/* Updated Footer */}
           <footer className="mt-24 py-12 border-t border-gray-800 text-center text-gray-500 text-sm">
             <p>
-              © 2025 CONNEXT. Built for people who actually reply. {" "}
-              <a href="#" className="underline">Privacy</a> • {" "}
-              <a href="#" className="underline">Terms</a> • {" "}
-              <a href="#" className="underline">Twitter</a>
+              © 2025 CONNEXT. Built for people who actually reply.{" "}
+              <a href="#" className="underline">Privacy</a> •{" "}
+              <a href="#" className="underline">Terms</a> •{" "}
+              <a
+                href="https://www.instagram.com/connextapp?igsh=cjJrMmR0djgzZW1p&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                Instagram
+              </a>
             </p>
           </footer>
         </main>
