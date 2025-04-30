@@ -104,9 +104,9 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Michael */}
+              {/* Ayesha */}
               <div className="bg-[#1a1a1a] p-4 rounded-xl border border-[#333] shadow-md flex flex-col justify-between h-full">
-                <p className="font-semibold text-[#f5f5f5] text-lg">Michael</p>
+                <p className="font-semibold text-[#f5f5f5] text-lg">Ayesha</p>
                 <p className="text-sm text-gray-400 mb-2">Mentor</p>
                 <p className="text-gray-300 text-sm mb-2 italic">
                   “Prefer 30-min async audio calls. No fluff.”
@@ -193,8 +193,6 @@ export default function Home() {
           <footer className="mt-24 py-12 border-t border-gray-800 text-center text-gray-500 text-sm">
             <p>
               © 2025 CONNEXT. Built for people who actually reply.{" "}
-              <a href="#" className="underline">Privacy</a> •{" "}
-              <a href="#" className="underline">Terms</a> •{" "}
               <a
                 href="https://www.instagram.com/connextapp?igsh=cjJrMmR0djgzZW1p&utm_source=qr"
                 target="_blank"
