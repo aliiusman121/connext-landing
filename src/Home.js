@@ -74,7 +74,7 @@ export default function Home() {
               <p><strong>Choose your vibe(s)</strong> — Are you a Builder? Mentor? Explorer? Student?</p>
               <p><strong>Scroll the feed</strong> – part discovery, part digital stalking (in a good way).</p>
               <p><strong>Find someone that matches your vibe</strong> – vibes are the new résumés.</p>
-              <p><strong>Hit connect</strong> – No awkward intros. Just instant access to cool humans.</p>
+              <p><strong>Hit connext</strong> – No awkward intros. Just instant access to cool humans.</p>
               <p><strong>Start something real</strong> – Collaborate. Create. Build. Repeat.</p>
             </div>
 
