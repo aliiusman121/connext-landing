@@ -100,7 +100,7 @@ export default function Signup() {
 
         {!submitted && (
           <p className="text-gray-300 text-base mt-4 text-center font-medium">
-            400+ signed up. You should too.
+            250+ signed up. You should too.
           </p>
         )}
       </motion.div>
